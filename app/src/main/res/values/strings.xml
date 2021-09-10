@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Evaluation</string>
+    <string name="albums_text">Álbuns</string>
+    <string name="posts_text">Postagens</string>
+    <string name="users_text">Usuários</string>
+
+</resources>

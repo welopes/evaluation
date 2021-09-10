@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="user"
+            type="com.tribo_mkt.evaluation.domain.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fundo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/letra"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="16dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:textColor="@color/text_light"
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:maxWidth="150dp"
+            android:textColor="@color/text_dark"
+            android:text="@{user.name}"
+            android:textSize="@dimen/text_normal_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/letra"
+            tools:text="Nome" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="letra,nome" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="150dp"
+            android:layout_margin="8dp"
+            android:background="@color/divisor"
+            app:layout_constraintBottom_toBottomOf="@id/nome"
+            app:layout_constraintStart_toEndOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="@id/letra" />
+
+        <TextView
+            android:id="@+id/usuarioNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:ellipsize="end"
+            android:text="@{user.userName}"
+            android:maxLines="1"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_normal_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/letra"
+            tools:text="UsuarioNomeasd- asdasd" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:text="@{user.email}"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_normal_size"
+            app:layout_constraintBottom_toTopOf="@+id/telefone"
+            app:layout_constraintEnd_toEndOf="@+id/usuarioNome"
+            app:layout_constraintStart_toStartOf="@+id/usuarioNome"
+            app:layout_constraintTop_toBottomOf="@+id/usuarioNome"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/telefone"
+            android:text="@{user.phone}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_dark"
+            android:textSize="@dimen/text_normal_size"
+            app:layout_constraintBottom_toBottomOf="@+id/nome"
+            app:layout_constraintEnd_toEndOf="@+id/email"
+            app:layout_constraintStart_toStartOf="@+id/usuarioNome"
+            tools:text="Telefone" />
+
+        <Button
+            android:id="@+id/albunsBotao"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:text="@string/albums_text"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/postagensBotao"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <Button
+            android:id="@+id/postagensBotao"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:text="@string/posts_text"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/albunsBotao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/albunsBotao"
+            app:layout_constraintTop_toTopOf="@+id/albunsBotao" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
