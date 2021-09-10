@@ -12,8 +12,10 @@ import com.tribo_mkt.evaluation.domain.User
 import com.tribo_mkt.evaluation.ui.adapter.UserListAdapter.UserListViewHolder
 import java.util.*
 
-//class UserListAdapter(val clickListener: UserClickListener) :
-class UserListAdapter() :
+class UserListAdapter(
+    val albumClickListener: AlbumClickListener,
+    val postClickListener: PostClickListener
+) :
     ListAdapter<User, UserListViewHolder>(DiffCallback) {
     companion object DiffCallback : DiffUtil.ItemCallback<User>() {
         override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
@@ -27,29 +29,29 @@ class UserListAdapter() :
 
     class UserListViewHolder(private var binding: UserListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: User, position: Int) {
+        fun bind(
+            albumClickListener: AlbumClickListener,
+            postClickListener: PostClickListener,
+            user: User,
+            position: Int
+        ) {
 
             binding.user = user
 
             binding.apply {
                 letra.text = user.name.substring(0, 2).uppercase(Locale.getDefault())
                 if ((position - 1) % 2 == 0) {
-                    binding.fundo.setBackgroundColor(ContextCompat.getColor(fundo.context, R.color.fundo))
+                    binding.fundo.setBackgroundColor(
+                        ContextCompat.getColor(
+                            fundo.context,
+                            R.color.fundo
+                        )
+                    )
                 }
             }
 
-//            binding.albunsBotao.setOnClickListener {
-//                val intent = Intent(activity, AlbunsActivity::class.java)
-//                intent.putExtra("usuarioId", items[position].id)
-//                intent.putExtra("usuarioNome", items[position].usuarioNome)
-//                activity.startActivity(intent)
-//            }
-//            binding.postagensBotao.setOnClickListener {
-//                val intent = Intent(activity, PostagensActivity::class.java)
-//                intent.putExtra("usuarioId", items[position].id)
-//                intent.putExtra("usuarioNome", items[position].usuarioNome)
-//                activity.startActivity(intent)
-//            }
+            binding.albumClickListener = albumClickListener
+            binding.postClickListener = postClickListener
 
             binding.executePendingBindings()
         }
@@ -65,15 +67,18 @@ class UserListAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
         return UserListViewHolder.from(parent)
-
     }
 
     override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
-        holder.bind(getItem(position), position)
+        holder.bind(albumClickListener, postClickListener, getItem(position), position)
     }
 }
 
-class UserClickListener(val clickListener: (chapter: User) -> Unit) {
-    fun onClick(chapter: User) = clickListener(chapter)
+class AlbumClickListener(val clickListener: (user: User) -> Unit) {
+    fun onClick(user: User) = clickListener(user)
+}
+
+class PostClickListener(val clickListener: (user: User) -> Unit) {
+    fun onClick(user: User) = clickListener(user)
 }
 

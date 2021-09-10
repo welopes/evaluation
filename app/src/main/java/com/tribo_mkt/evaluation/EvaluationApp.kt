@@ -1,9 +1,7 @@
 package com.tribo_mkt.evaluation
 
 import android.app.Application
-import com.tribo_mkt.evaluation.koin.repositoryModule
-import com.tribo_mkt.evaluation.koin.retrofitModule
-import com.tribo_mkt.evaluation.koin.viewModelModule
+import com.tribo_mkt.evaluation.koin.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -14,7 +12,9 @@ class EvaluationApp : Application() {
     private val appModules = listOf(
         repositoryModule,
         retrofitModule,
-        viewModelModule
+        userViewModelModule,
+        albumsViewModelModule,
+        postsViewModelModule
     )
 
     override fun onCreate() {

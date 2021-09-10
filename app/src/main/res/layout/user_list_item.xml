@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="user"
             type="com.tribo_mkt.evaluation.domain.User" />
+
+        <variable
+            name="albumClickListener"
+            type="com.tribo_mkt.evaluation.ui.adapter.AlbumClickListener" />
+
+        <variable
+            name="postClickListener"
+            type="com.tribo_mkt.evaluation.ui.adapter.PostClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,8 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:maxWidth="150dp"
-            android:textColor="@color/text_dark"
             android:text="@{user.name}"
+            android:textColor="@color/text_dark"
             android:textSize="@dimen/text_normal_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/letra"
@@ -65,8 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:ellipsize="end"
-            android:text="@{user.userName}"
             android:maxLines="1"
+            android:text="@{user.userName}"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/text_normal_size"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,8 +86,8 @@
         <TextView
             android:id="@+id/email"
             android:layout_width="0dp"
-            android:text="@{user.email}"
             android:layout_height="wrap_content"
+            android:text="@{user.email}"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/text_normal_size"
             app:layout_constraintBottom_toTopOf="@+id/telefone"
@@ -89,9 +98,9 @@
 
         <TextView
             android:id="@+id/telefone"
-            android:text="@{user.phone}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:text="@{user.phone}"
             android:textColor="@color/text_dark"
             android:textSize="@dimen/text_normal_size"
             app:layout_constraintBottom_toBottomOf="@+id/nome"
@@ -105,7 +114,8 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_margin="8dp"
-            android:text="@string/albums_text"
+            android:onClick="@{() -> albumClickListener.onClick(user)}"
+            android:text="@string/albums_button_text"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/postagensBotao"
@@ -119,7 +129,8 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_margin="8dp"
-            android:text="@string/posts_text"
+            android:onClick="@{() -> postClickListener.onClick(user)}"
+            android:text="@string/posts_button_text"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/albunsBotao"
             app:layout_constraintEnd_toEndOf="parent"

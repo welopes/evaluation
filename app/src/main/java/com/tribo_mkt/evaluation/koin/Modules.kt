@@ -7,8 +7,10 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.tribo_mkt.evaluation.EvaluationApp
 import com.tribo_mkt.evaluation.network.EvaluationApi
 import com.tribo_mkt.evaluation.respository.Repository
-import com.tribo_mkt.evaluation.util.EVALUATION_URL
-import com.tribo_mkt.evaluation.viewmodels.UserViewModel
+import com.tribo_mkt.evaluation.util.Constants
+import com.tribo_mkt.evaluation.viewmodels.AlbumsViewModel
+import com.tribo_mkt.evaluation.viewmodels.MainViewModel
+import com.tribo_mkt.evaluation.viewmodels.PostsViewModel
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,9 +20,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
-val viewModelModule = module {
+val userViewModelModule = module {
     viewModel {
-        UserViewModel(get())
+        MainViewModel(get())
+    }
+}
+
+val albumsViewModelModule = module {
+    viewModel {
+        AlbumsViewModel(get())
+    }
+}
+
+val postsViewModelModule = module {
+    viewModel {
+        PostsViewModel(get())
     }
 }
 
@@ -58,7 +72,7 @@ val retrofitModule = module {
     single<Retrofit> {
         Retrofit.Builder()
             .client(get<OkHttpClient>())
-            .baseUrl(EVALUATION_URL)
+            .baseUrl(Constants.EVALUATION_URL)
             .addConverterFactory(GsonConverterFactory.create(get<Gson>()))
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()

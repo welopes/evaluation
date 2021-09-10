@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Evaluation</string>
-    <string name="albums_text">Álbuns</string>
-    <string name="posts_text">Postagens</string>
-    <string name="users_text">Usuários</string>
-
+    <string name="albums_button_text">Álbuns</string>
+    <string name="posts_button_text">Postagens</string>
+    <string name="users_title_text">Usuários</string>
+    <string name="user_text">Usuário</string>
+    <string name="albums_title_text">Álbuns de %1$s</string>
+    <string name="posts_title_text">Postagens de %1$s</string>
+    <string name="error_user_list">Algo errado aconteceu. Tente novamente mais tarde.</string>
 </resources>

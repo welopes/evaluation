@@ -1,3 +1,9 @@
 package com.tribo_mkt.evaluation.util
 
-var EVALUATION_URL = "https://jsonplaceholder.typicode.com/"
+enum class Status {
+    LOADING, SUCCESS
+}
+
+object Constants {
+    const val  EVALUATION_URL = "https://jsonplaceholder.typicode.com/"
+}
