@@ -37,7 +37,9 @@
                     android:id="@+id/lista"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:albumListData="@{viewModel.albums}"
+                    tools:listitem="@layout/album_list_item" />
 
             </LinearLayout>
 

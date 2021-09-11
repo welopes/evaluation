@@ -13,8 +13,8 @@ import com.tribo_mkt.evaluation.ui.adapter.UserListAdapter.UserListViewHolder
 import java.util.*
 
 class UserListAdapter(
-    val albumClickListener: AlbumClickListener,
-    val postClickListener: PostClickListener
+    private val albumClickListener: AlbumClickListener,
+    private val postClickListener: PostClickListener
 ) :
     ListAdapter<User, UserListViewHolder>(DiffCallback) {
     companion object DiffCallback : DiffUtil.ItemCallback<User>() {

@@ -38,7 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:listData="@{viewModel.users}"
+                    app:userListData="@{viewModel.users}"
                     tools:listitem="@layout/user_list_item" />
 
             </LinearLayout>

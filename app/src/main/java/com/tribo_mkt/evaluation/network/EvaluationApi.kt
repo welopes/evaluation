@@ -1,6 +1,7 @@
 package com.tribo_mkt.evaluation.network
 
 import com.tribo_mkt.evaluation.network.response.AlbumResponse
+import com.tribo_mkt.evaluation.network.response.CommentResponse
 import com.tribo_mkt.evaluation.network.response.PostResponse
 import com.tribo_mkt.evaluation.network.response.UserResponse
 import kotlinx.coroutines.Deferred
@@ -18,5 +19,11 @@ interface EvaluationApi {
 
     @GET("albums")
     fun getAlbumsByUserId(@Query("userId") userId: Int): Deferred<Response<List<AlbumResponse>>>
+
+    @GET("comments")
+    fun getCommentsByPostId(@Query("postId") postId: Int): Deferred<Response<List<CommentResponse>>>
+
+    @GET("comments")
+    fun getCommentsByUserId(@Query("userId") userId: Int): Deferred<Response<List<CommentResponse>>>
 
 }

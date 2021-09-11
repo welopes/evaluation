@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.tribo_mkt.evaluation.ui.fragment.MainFragment"
-        android:label="fragment_main"
+        android:label="@string/users_title_text"
         tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_albumsFragment"
@@ -22,15 +22,23 @@
         android:name="com.tribo_mkt.evaluation.ui.fragment.AlbumsFragment"
         android:label="fragment_albums"
         tools:layout="@layout/fragment_albums">
-        <argument android:name="id" />
-        <argument android:name="name" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/postsFragment"
         android:name="com.tribo_mkt.evaluation.ui.fragment.PostsFragment"
         android:label="fragment_posts"
         tools:layout="@layout/fragment_posts">
-        <argument android:name="id" />
-        <argument android:name="name" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
     </fragment>
 </navigation>

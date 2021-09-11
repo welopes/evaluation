@@ -28,17 +28,19 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.users_title_text)
-
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
         var adapter = UserListAdapter(AlbumClickListener { user ->
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToAlbumsFragment(user.id, user.name))
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToAlbumsFragment(user.id, user.name)
+            )
         }, PostClickListener { user ->
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToPostsFragment(user.id, user.name))
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToPostsFragment(user.id, user.name)
+            )
         })
 
         binding.lista.adapter = adapter
