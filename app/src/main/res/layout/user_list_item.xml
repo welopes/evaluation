@@ -7,15 +7,15 @@
 
         <variable
             name="user"
-            type="com.tribo_mkt.evaluation.domain.User" />
+            type="com.welopes.evaluation.domain.User" />
 
         <variable
             name="albumClickListener"
-            type="com.tribo_mkt.evaluation.ui.adapter.AlbumClickListener" />
+            type="com.welopes.evaluation.ui.adapter.AlbumClickListener" />
 
         <variable
             name="postClickListener"
-            type="com.tribo_mkt.evaluation.ui.adapter.PostClickListener" />
+            type="com.welopes.evaluation.ui.adapter.PostClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.tribo_mkt.evaluation.viewmodels.AlbumsViewModel" />
+            type="com.welopes.evaluation.viewmodels.AlbumsViewModel" />
     </data>
 
     <LinearLayout

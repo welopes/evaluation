@@ -6,6 +6,9 @@
     <string name="user_text">Usuário</string>
     <string name="albums_title_text">Álbuns de %1$s</string>
     <string name="posts_title_text">Postagens de %1$s</string>
-    <string name="error_user_list">Algo errado aconteceu. Tente novamente mais tarde.</string>
     <string name="number_of_comments">Número de comentários: %1$s</string>
+    <!--    Errors-->
+    <string name="error_album_list">Algo errado aconteceu. Tente novamente mais tarde.</string>
+    <string name="error_post_list">Algo errado aconteceu. Tente novamente mais tarde.</string>
+    <string name="error_user_list">Algo errado aconteceu. Tente novamente mais tarde.</string>
 </resources>

@@ -6,7 +6,7 @@
 
         <variable
             name="post"
-            type="com.tribo_mkt.evaluation.domain.Post" />
+            type="com.welopes.evaluation.domain.Post" />
     </data>
 
     <LinearLayout

@@ -9,7 +9,7 @@ android {
     compileSdk 29
 
     defaultConfig {
-        applicationId "com.tribo_mkt.evaluation"
+        applicationId "com.welopes.evaluation"
         minSdk 21
         targetSdk 29
         versionCode 1
